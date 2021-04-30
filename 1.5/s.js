@@ -1,5 +1,5 @@
-const { StringDecoder } = require("string_decoder");
-const decoder = new StringDecoder("utf8");
+const { StringDecoder } = require('string_decoder');
+const decoder = new StringDecoder('utf8');
 
 const cent = Buffer.from([0xc2, 0xa2]);
 console.log(decoder.write(cent));

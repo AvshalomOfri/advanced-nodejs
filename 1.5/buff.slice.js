@@ -1,9 +1,9 @@
-const fs = require("fs");
+const fs = require('fs');
 
 const conversionMap = {
-  88: "71",
-  89: "72",
-  90: "73",
+  88: '71',
+  89: '72',
+  90: '73',
 };
 
 fs.readFile(__filename, (err, buffer) => {
