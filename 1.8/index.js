@@ -20,9 +20,10 @@
 // const printStars = require('./printStars');
 // printStars(10, 'Hi!');
 
-
 require('./ascii-art')();
+require('./ascii-art')();
+require('./ascii-art'); // no invoking, no print
+
+// require('./ascii-art')();
 // console.log(require.cache);
 // delete require.cache['/Users/samer/jscomplete/1.8/ascii-art.js']
-
-require('./ascii-art')();

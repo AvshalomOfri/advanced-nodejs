@@ -1,12 +1,10 @@
-// console.log(module);
-
 // Extra paths:
 // $HOME/.node_modules
 // $HOME/.node_libraries
 // $PREFIX/lib/node
 
 // Just resolve, don't load
-// require.resolve('find-me');
+// require.resolve('./find-me');
 
 // Resolve a find-me.js on the same level as index.js
 // const findMe = require('./find-me');
