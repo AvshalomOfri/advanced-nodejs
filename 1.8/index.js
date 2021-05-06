@@ -20,9 +20,9 @@
 // const printStars = require('./printStars');
 // printStars(10, 'Hi!');
 
-require('./ascii-art')();
-require('./ascii-art')();
-require('./ascii-art'); // no invoking, no print
+require("./ascii-art")();
+require("./ascii-art")();
+require("./ascii-art"); // no invoking, no printing
 
 // require('./ascii-art')();
 // console.log(require.cache);
