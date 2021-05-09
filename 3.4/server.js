@@ -1,12 +1,17 @@
 const EventEmitter = require("events");
 
+//the server is extended instead of directly instantiated because it needs some custom logic
 class Server extends EventEmitter {
   constructor(client) {
     super();
-    this.tasks = {};
-    this.taskId = 1;
+    this.tasks = {}; //contains all tasks
+    this.taskId = 1; // unique id for each task
     process.nextTick(() => {
-      this.emit("response", "Type a command (help to list commands)");
+      //this initial response emitter is wrapped in nextTick because when server is required in the client module it is fired immediatly before the inital response emitter is defined.
+      this.emit(
+        "response",
+        'Awaiting command... (type "help" to list all commands)'
+      );
     });
     client.on("command", (command, args) => {
       switch (command) {
@@ -14,14 +19,18 @@ class Server extends EventEmitter {
         case "add":
         case "ls":
         case "delete":
+        case "update":
           this[command](args);
           break;
+        case "exit":
+          process.exit(console.log("process terminated"));
         default:
           this.emit("response", "Unknown command...");
       }
     });
   }
 
+  //helper function for the ls command
   tasksString() {
     return Object.keys(this.tasks)
       .map((key) => {
@@ -30,13 +39,15 @@ class Server extends EventEmitter {
       .join("\n");
   }
 
+  //all commands functions:
   help() {
     this.emit(
       "response",
       `Available Commands:
-  add task
+  add <task>
   ls
-  delete :id`
+  delete :id
+  update: id value`
     );
   }
   add(args) {
@@ -50,6 +61,11 @@ class Server extends EventEmitter {
   delete(args) {
     delete this.tasks[args[0]];
     this.emit("response", `Deleted task ${args[0]}`);
+  }
+  update(args) {
+    let updated = args[1];
+    this.tasks[args[0]] = updated; //args[0] is the task id
+    this.emit("response", `Updated ${args[0]}`);
   }
 }
 
