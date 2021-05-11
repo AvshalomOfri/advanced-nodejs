@@ -1,4 +1,4 @@
-//*i'm using Putty terminal as client since cmd and powershell send data with each keystroke instead of after Enter
+//*i'm using Putty terminal as client since cmd and powershell send data with each keystroke instead of only after Enter
 const server = require("net").createServer();
 
 server.on("connection", (socket) => {
