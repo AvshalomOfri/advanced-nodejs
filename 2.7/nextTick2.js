@@ -1,10 +1,11 @@
-const timeout = 10;
+const timeout = 2000;
 
 console.log("root code - Start");
 
 setTimeout(() => {
   console.log("--timeout 1");
 }, timeout);
+
 setImmediate(() => console.log("--immediate 1"));
 
 setTimeout(() => {

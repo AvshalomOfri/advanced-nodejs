@@ -17,6 +17,6 @@ server.on("request", (req, res) => {
   // res.end();
 });
 
-server.timeout = 30000; //changes the server default timeout of 30 seconds
+server.timeout = 3000; //changes the server default timeout of 30 seconds
 
 server.listen(8000);
