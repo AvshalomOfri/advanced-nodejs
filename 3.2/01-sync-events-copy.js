@@ -7,8 +7,6 @@ class WithLog extends EventEmitter {
     console.log("Before executing");
     this.emit("begin");
     taskFunc();
-    this.emit("end");
-    console.log("After executing");
   }
 }
 

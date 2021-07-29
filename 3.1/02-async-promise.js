@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-//The readFile is wrapped in a promise, the promise exposes to functions: resolve, for succesful reading of the file, and reject, for handling errors.
+//The readFile is wrapped in a promise, the promise exposes the resolve and reject functions. Resolve for handling a successful async action and reject for handling a failed one.
 const readFileAsArray = function (file) {
   return new Promise((resolve, reject) => {
     fs.readFile(file, function (err, data) {

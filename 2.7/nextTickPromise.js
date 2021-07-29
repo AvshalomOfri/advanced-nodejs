@@ -1,4 +1,4 @@
-const timeout = 10;
+const timeout = 1000;
 
 console.log("root code - Start");
 
