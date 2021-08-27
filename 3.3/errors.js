@@ -26,13 +26,14 @@ withTime.on("error", (err) => {
   console.error;
 });
 
-//In case of uncaught exceptions it's better to terminate the process as soon as one arise. Using "process.on" to handle uncaught exceptions can cause the listener to trigger multiple times and interrupt clean up operations. The "process.once" listener will  trigger only once, on first uncaughtException event
+//In case of uncaught exceptions it's better to terminate the process as soon as they arise. Using "process.on" to handle uncaught exceptions can cause the listener to trigger multiple times and interrupt clean up operations. The "process.once" listener will trigger only once, at the first uncaughtException event.
 
-// process.once("uncaughtException", (err) => {
-//   console.log(err.message);
-//   // do some cleanup
-//   process.exit(1); // exit anyway
-// });
+process.once("uncaughtException", (err) => {
+  console.log(err.message);
+  // do some cleanup
+  process.exit(1); // exit anyway
+});
 
 withTime.execute(fs.readFile, "");
 withTime.execute(fs.readFile, __filename);
+// withTime.execute(fs.readFile, asasas);

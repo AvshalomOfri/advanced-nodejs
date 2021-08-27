@@ -28,7 +28,8 @@ withTime.on("data", (data) => {
 });
 
 withTime.prependListener("data", (data) => {
-  console.log("i show up last...but go first!");
+  console.log("i'm being called last...but i'm logged first!");
+  console.log(data);
 });
 
 // withTime.removeListener ...

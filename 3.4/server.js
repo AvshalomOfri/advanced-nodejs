@@ -7,7 +7,7 @@ class Server extends EventEmitter {
     this.tasks = {}; //contains all tasks
     this.taskId = 1; // unique id for each task
     process.nextTick(() => {
-      //this initial response emitter is wrapped in nextTick because when server is required in the client module it is fired immediatly before the inital response emitter is defined.
+      //this initial response emitter is wrapped in nextTick because when the server is required in the client module it is fired immediatly before the inital response emitter is defined.
       this.emit(
         "response",
         'Awaiting command... (type "help" to list all commands)'

@@ -1,14 +1,27 @@
-// const fs = require("fs");
-// const EventEmitter = require("events");
+const EventEmitter = require("events");
+//The EventEmitter is a module that facilitate communication between objects in node
 
-// class Counter extends EventEmitter {
-//   execute(asyncFunc, ...args) {
-//     this.emit("begin");
-//     asyncFunc(...args, (err, data) => {});
-//   }
-// }
+//this code run synchronounsly
+class WithLog extends EventEmitter {
+  async execute(taskFunc) {
+    console.log("Before executing");
+    this.emit("begin");
+    const counter = await taskFunc()._onTimeout();
+    console.log(counter);
+  }
+}
 
-// Counter.execute(count, 5);
+const withLog = new WithLog();
+
+withLog.on("begin", () => console.log("About to execute"));
+withLog.on("end", () => console.log("Done with execute"));
+
+//if taskFunc() is async it will resolve after the "end" and "after executing" are logged, which is chronologically wrong.
+withLog.execute(() =>
+  setTimeout(() => {
+    return count(8);
+  }, 2000)
+);
 
 function count(number) {
   let arr = [];
@@ -18,4 +31,13 @@ function count(number) {
   return arr;
 }
 
-console.log(count(5));
+function fetch(url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, (res) => {
+      let data = "";
+      res.on("data", (rd) => (data = data + rd));
+      res.on("end", () => resolve(data));
+      res.on("error", reject);
+    });
+  });
+}

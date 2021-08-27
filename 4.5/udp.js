@@ -8,7 +8,8 @@ const server = dgram.createSocket("udp4");
 server.on("listening", () => console.log("UDP Server listening"));
 
 server.on("message", (msg, rinfo) => {
-  console.log(`${rinfo.address}:${rinfo.port} - ${msg}`);
+  console.log(`${rinfo.address}`);
+  // console.log(`${rinfo.address}:${rinfo.port} - ${msg}`);
 });
 
 server.bind(PORT, HOST);
@@ -16,12 +17,13 @@ server.bind(PORT, HOST);
 // Client
 
 const client = dgram.createSocket("udp4");
-// const msg = Buffer.from("Pluralsight rocks");
+const msg = Buffer.from("Pluralsight rocks");
 
 client.send(msg, 0, msg.length, PORT, HOST, (err) => {
-  //start and end point arguments are only needed if you use a buffer e.g. "0 and 11"
+  //start and end point arguments can be used to split the message
   if (err) throw err;
 
   console.log("UDP message sent");
+  client.rawListeners();
   client.close();
 });
