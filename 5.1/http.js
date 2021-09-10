@@ -1,16 +1,16 @@
 const server = require("http").createServer();
+//*Curl was installed for convenient testing.
 //http is a first class citizen in nodejs . node started as a web server and evolved into the more generalized framework it is today
 
 //a 'request' event happens everytime the client connects to the server
-//node can handle partial chunked responses, since the response object is a writeble stream!
+//node can handle partial chunked responses, since the response object is a writeble stream! e.g video buffering
 server.on("request", (req, res) => {
   res.writeHead(200, { "content-type": "text/plain" });
   res.write("Hello world\n");
-  res.end();
+  // res.end(); placing a res.end() here would have terminated the connection before the delayed res.write() messages could be sent. This is why the res.end() has been nested within the function who gets called the last.
 
   setTimeout(function () {
     res.write("Another Hello world\n");
-    res.end();
   }, 1000);
 
   setTimeout(function () {
@@ -21,6 +21,6 @@ server.on("request", (req, res) => {
   // res.end();
 });
 
-server.timeout = 3000; //changes the server default timeout of 30 seconds
+server.timeout = 4000; //changes the server default timeout (default is 30 seconds)
 
 server.listen(8000);
