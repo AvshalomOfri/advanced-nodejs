@@ -1,13 +1,11 @@
 const fs = require('fs');
 
-
 // Asynchronous Form:
 fs.readFile(__filename, (err, data) => {
   if (err) throw err;
 
   // do something with data
 });
-
 
 // Synchronous Form:
 const data = fs.readFileSync(__filename);
@@ -15,14 +13,12 @@ const data = fs.readFileSync(__filename);
 // do something with data
 const fs = require('fs');
 
-
 // Asynchronous Form:
 fs.readFile(__filename, (err, data) => {
   if (err) throw err;
 
   // do something with data
 });
-
 
 // Synchronous Form:
 const data = fs.readFileSync(__filename);

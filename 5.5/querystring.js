@@ -3,7 +3,7 @@ const querystring = require('querystring');
 console.log(
   querystring.stringify({
     name: 'Samer Buna',
-    website: 'jsComplete.com/samer-buna'
+    website: 'jsComplete.com/samer-buna',
   })
 );
 

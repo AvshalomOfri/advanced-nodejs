@@ -1,10 +1,10 @@
 const server = require('net').createServer();
 
-server.on('connection', socket => {
+server.on('connection', (socket) => {
   console.log('Client connected');
   socket.write('Welcome new client!\n');
 
-  socket.on('data', data => {
+  socket.on('data', (data) => {
     console.log('data is:', data);
     socket.write('data is: ');
     socket.write(data);
@@ -18,11 +18,11 @@ server.on('connection', socket => {
 server.listen(8000, () => console.log('Server bound'));
 const server = require('net').createServer();
 
-server.on('connection', socket => {
+server.on('connection', (socket) => {
   console.log('Client connected');
   socket.write('Welcome new client!\n');
 
-  socket.on('data', data => {
+  socket.on('data', (data) => {
     console.log('data is:', data);
     socket.write('data is: ');
     socket.write(data);
