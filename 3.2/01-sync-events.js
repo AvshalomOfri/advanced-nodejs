@@ -1,7 +1,5 @@
 const EventEmitter = require("events");
-//The EventEmitter is a module that facilitate communication between objects in node
 
-//this code run synchronounsly
 class WithLog extends EventEmitter {
   execute(taskFunc) {
     console.log("Before executing");

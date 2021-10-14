@@ -3,5 +3,4 @@ function negativeSum(...args) {
     return total - arg;
   }, 0);
 }
-
 console.log(negativeSum(1, 5, 10));

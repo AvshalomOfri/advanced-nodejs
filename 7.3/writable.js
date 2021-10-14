@@ -9,4 +9,5 @@
 //
 // process.stdin.pipe(outStream);
 
+// process.stdout.write("hello console");
 process.stdin.pipe(process.stdout);

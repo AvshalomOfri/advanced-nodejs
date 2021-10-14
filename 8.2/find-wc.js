@@ -1,10 +1,12 @@
-const { spawn } = require('child_process');
+//run with git bash terminal
+const { spawn } = require("child_process");
 
-const find = spawn('find', ['.', '-type', 'f']);
-const wc = spawn('wc', ['-l']);
+const find = spawn("find", [".", "-type", "f"]);
+const wc = spawn("wc");
 
-find.stdout.pipe(wc.stdin);
-
-wc.stdout.on('data', (data) => {
+wc.stdout.on("data", (data) => {
   console.log(`Number of files ${data}`);
 });
+
+find.stdout.pipe(wc.stdin);
+//*Reminder: source.pipe(destination)

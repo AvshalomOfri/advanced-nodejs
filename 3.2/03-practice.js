@@ -8,6 +8,7 @@ class WithLog extends EventEmitter {
     this.emit("begin");
     const counter = await taskFunc()._onTimeout();
     console.log(counter);
+    this.emit("end");
   }
 }
 
@@ -19,7 +20,8 @@ withLog.on("end", () => console.log("Done with execute"));
 //if taskFunc() is async it will resolve after the "end" and "after executing" are logged, which is chronologically wrong.
 withLog.execute(() =>
   setTimeout(() => {
-    return count(8);
+    return "9898";
+    // return count(8);
   }, 2000)
 );
 

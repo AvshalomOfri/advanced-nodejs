@@ -15,7 +15,7 @@ const readFileAsArray = function (file) {
 };
 
 // example call
-const path = "C:/Users/PCP-RENT/VS Codium Projects/advanced-nodejs/3.1/numbers";
+const path = __dirname + "/numbers";
 
 readFileAsArray(path)
   .then((lines) => {

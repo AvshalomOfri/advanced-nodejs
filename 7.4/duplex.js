@@ -16,6 +16,5 @@ const inoutStream = new Duplex({
     this.push(String.fromCharCode(this.currentCharCode++));
   },
 });
-
 inoutStream.currentCharCode = 65;
 process.stdin.pipe(inoutStream).pipe(process.stdout);

@@ -1,16 +1,18 @@
-const { spawn } = require('child_process');
+//*run in git bash terminal since linux commands are used here
 
-const child = spawn('find', ['.', '-type', 'f']);
+const { spawn } = require("child_process");
+//a child is spawn and given a command with an array of arguments
+const child = spawn("find", ["lorem.txt", "-type", "f"]);
 
-child.stdout.on('data', (data) => {
+child.stdout.on("data", (data) => {
   console.log(`child stdout:\n${data}`);
 });
 
-child.stderr.on('data', (data) => {
+child.stderr.on("data", (data) => {
   console.error(`child stderr:\n${data}`);
 });
 
-child.on('exit', function (code, signal) {
+child.on("exit", function (code, signal) {
   console.log(`child process exited with code ${code}, signal ${signal}`);
 });
 
