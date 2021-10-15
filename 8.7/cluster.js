@@ -27,7 +27,7 @@ if (cluster.isMaster) {
   };
 
   updateWorkers();
-  setInterval(updateWorkers, 10000);
+  setInterval(updateWorkers, 8000);
 } else {
   require("./server");
 }

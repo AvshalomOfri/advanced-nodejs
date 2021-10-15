@@ -5,9 +5,13 @@ const pid = process.pid;
 
 http
   .createServer((req, res) => {
-    for (let i = 0; i < 1e7; i++); // simulate CPU work
+    let sum = 0;
+    for (let i = 0; i < 1e7; i++) {
+      sum++;
+    } // simulate CPU work
+    res.write(`sum is: ${sum} \n`);
     res.end(`Handled by process ${pid}`);
   })
-  .listen(8080, () => {
+  .listen(8000, () => {
     console.log(`Started process ${pid}`);
   });
