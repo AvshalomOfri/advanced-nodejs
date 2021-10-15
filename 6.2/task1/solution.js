@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const dirname = path.join(__dirname, 'files');
+const fs = require("fs");
+const path = require("path");
+const dirname = path.join(__dirname, "files");
 
 const files = fs.readdirSync(dirname);
 

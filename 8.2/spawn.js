@@ -1,4 +1,4 @@
-//*run in git bash terminal since linux commands are used here
+//*run with git bash since linux commands are used here
 
 const { spawn } = require("child_process");
 //a child is spawn and given a command with an array of arguments

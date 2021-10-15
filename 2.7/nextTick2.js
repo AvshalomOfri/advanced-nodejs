@@ -1,3 +1,5 @@
+// A function passed to process.nextTick() is going to be executed on the current iteration of the event loop, after the current operation ends. This means it will always execute before setTimeout and setImmediate.
+
 const timeout = 2000;
 
 console.log("root code - Start");
@@ -18,8 +20,8 @@ setTimeout(() => {
 }, timeout);
 
 process.nextTick(() => {
-  process.nextTick(() => console.log("--next tick 2"));
   console.log("--next tick 1");
+  process.nextTick(() => console.log("--next tick 2"));
 });
 
 console.log("root code - END - event loop takes over");

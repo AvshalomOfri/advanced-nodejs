@@ -8,12 +8,12 @@ const { Transform } = require("stream");
 
 const progress = new Transform({
   transform(chunk, encoding, callback) {
-    process.stdout.write(".");
+    process.stdout.write("."); //dotted progress bar
     callback(null, chunk);
   },
 });
 
-//the file is compressed with Zlib than encrypted with crypto. Later it will be unencrypted and than decompressed in the unzip.js
+//the file is compressed with zlib than encrypted with crypto. Later it will be unencrypted and than decompressed by unzip.js
 fs.createReadStream(file)
   .pipe(zlib.createGzip())
   .pipe(crypto.createCipher("aes192", "a_secret"))

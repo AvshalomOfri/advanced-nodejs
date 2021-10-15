@@ -33,5 +33,5 @@ fileSize(1, (err, size) => {
   // if (err) throw err;
 });
 
-console.log("HELLOOOOOOOOOOOOOOOOOO!");
+console.log("HELLO!");
 console.log("DDDDO!");

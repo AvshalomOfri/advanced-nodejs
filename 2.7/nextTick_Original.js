@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-//this function can be both sync or async depending on the argument, this is bad design.  A function should either sync or async.
+//this function can be both sync or async depending on the argument passed in, this is bad design.  A function should be either sync or async.
 function fileSize(fileName, cb) {
   if (typeof fileName !== "string") {
     //by calling nextTick() the process waits for the next event loop cycle before throwing, effectively turning the fileSize function async.
@@ -19,7 +19,7 @@ function fileSize(fileName, cb) {
 }
 
 fileSize(1, (err, size) => {
-  if (err) throw err;
+  if (err) throw err.message;
 
   console.log(`Size in KB: ${size / 1024}`);
 });

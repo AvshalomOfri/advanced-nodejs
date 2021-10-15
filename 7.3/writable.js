@@ -1,13 +1,16 @@
-// const { Writable } = require('stream');
-//
+// const { Writable } = require("stream");
+
+//echo to console:
+
 // const outStream = new Writable({
 //   write(chunk, encoding, callback) {
 //     console.log(chunk.toString());
 //     callback();
-//   }
+//   },
 // });
-//
 // process.stdin.pipe(outStream);
 
-// process.stdout.write("hello console");
+//A more concise implementation:
 process.stdin.pipe(process.stdout);
+
+// process.stdout.write("hello console");

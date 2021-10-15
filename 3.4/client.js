@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-//instantiating (instead of extending) directly from the event emitter since this client will have simple logic
+//This client will have simple logic. Instantiating (instead of extending a custom class) an EventEmitter object should be enough.
 const client = new EventEmitter();
 const server = require("./server")(client);
 

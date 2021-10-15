@@ -7,4 +7,8 @@ fs.readFile(__filename, () => {
   setImmediate(() => {
     console.log("immediate");
   });
+  process.nextTick(() => {
+    console.log("nextTick");
+  });
+  console.log("log1");
 });

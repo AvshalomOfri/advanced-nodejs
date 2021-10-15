@@ -28,7 +28,7 @@ withTime.on("data", (data) => {
 });
 
 withTime.prependListener("data", (data) => {
-  console.log("i'm being called last...but i'm logged first!");
+  console.log("prepend listener precedence");
   console.log(data);
 });
 

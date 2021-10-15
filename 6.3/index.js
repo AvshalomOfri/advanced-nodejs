@@ -1,29 +1,29 @@
-const fs = require("fs");
+// const fs = require("fs");
 
-const out = fs.createWriteStream("./out.log");
-const err = fs.createWriteStream("./err.log");
+// const out = fs.createWriteStream("./out.log");
+// const err = fs.createWriteStream("./err.log");
 
-const console2 = new console.Console(out, err);
+// const console2 = new console.Console(out, err);
 
-setInterval(function () {
-  console2.log(new Date());
-  console2.error(new Error("Whoops"));
-}, 5000);
+// setInterval(function () {
+//   console2.log(new Date());
+//   console2.error(new Error("Whoops"));
+// }, 2000);
 
 // **********************
 
-// const util = require("util");
-// const debuglog = util.debuglog("web");
+const util = require("util");
+const debuglog = util.debuglog("web");
 
-// const server = require("http").createServer();
+const server = require("http").createServer();
 
-// server.on("request", (req, res) => {
-//   debuglog("HTTP Request: %s", req.url);
-//   res.writeHead(200, { "content-type": "text/plain" });
-//   res.end("Hello world\n");
-// });
+server.on("request", (req, res) => {
+  debuglog("HTTP Request: %s", req.url);
+  res.writeHead(200, { "content-type": "text/plain" });
+  res.end("Hello world\n");
+});
 
-// server.listen(8000);
+server.listen(8000);
 
 // **********************
 
