@@ -27,7 +27,7 @@ if (cluster.isMaster) {
 
       //listen for worker exit than fork a new one
       worker.on("exit", () => {
-        if (!worker.exitedAfterDisconnect) return; //check if exited or crashed
+        if (!worker.exitedAfterDisconnect) return; //check if worker exited or crashed
         console.log(`Exited process ${worker.process.pid}`);
         // the 'listening' event reports that the worker is connected and ready, than the restartWorker function is called again to launch the next worker (We can't just restart the next worker right after a fork call because the fork action is not synchronous)
         cluster.fork().on("listening", () => {

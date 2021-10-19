@@ -25,7 +25,6 @@ if (cluster.isMaster) {
       worker.send({ usersCount });
     });
   };
-
   updateWorkers();
   setInterval(updateWorkers, 8000);
 } else {
